@@ -17,6 +17,29 @@ function fitsInOneBox(boxes) {
   return isCorrect
 }
 
+// solution 2 :(
+function fitsInOneBox(boxes) {
+  let ladoMasGrande = 0;
+  let index = 0;
+  boxes.forEach((box, el) => {
+    if (ladoMasGrande < box.l) {
+      ladoMasGrande = box.l
+      index = el
+    }
+  })
+
+  let isCorrect = false
+  const boxLarge = boxes[index]
+  boxes.forEach((box, i) => {
+    if (index !== i) {
+      isCorrect = (box.l < boxLarge.l) && (box.w <= boxLarge.w) && (box.h <= boxLarge.h)
+    }
+  })
+
+  return isCorrect
+}
+
+
 fitsInOneBox([
   { l: 1, w: 1, h: 1 },
   { l: 2, w: 2, h: 2 }
