@@ -4,15 +4,17 @@ We want to know if, after executing a series of movements, the robot returns to 
 
 The robot's basic commands are:
 
-L: Move to the left
-R: Move to the right
-U: Move upwards
-D: Move downwards
+- L: Move to the left
+- R: Move to the right
+- U: Move upwards
+- D: Move downwards
+
 But it also has certain modifiers for the movements:
 
-*: The movement is done with double intensity (e.g., *R means RR)
-!: The next movement is inverted (e.g., R!L is considered as RR)
-?: The next movement is done only if it hasn't been done before (e.g., R?R means R)
+- *: The movement is done with double intensity (e.g., *R means RR)
+- !: The next movement is inverted (e.g., R!L is considered as RR)
+- ?: The next movement is done only if it hasn't been done before (e.g., R?R means R)
+
 Note: When the movement is inverted with ! the inverted movement is counted and not the original one. For example, !U?U inverts the U movement, so it counts as having done the D movement but not the U. Thus, !U?U translates to D?U, and therefore, the final U movement is done.
 
 You must return:
