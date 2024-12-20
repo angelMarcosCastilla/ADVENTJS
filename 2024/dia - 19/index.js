@@ -10,25 +10,19 @@ function distributeWeight(weight) {
     10: [" _________ ", "|         |", "|_________|"],
   };
   const boxes = [10, 5, 2, 1];
-  const result = {
-    10: 0,
-    5: 0,
-    2: 0,
-    1: 0,
-  };
 
   let draw = [];
 
   for (const box of boxes) {
     if (weight >= box) {
       let boxDraw = [];
-      result[box] = Math.floor(weight / box);
+      const resultBox = Math.floor(weight / box);
       weight %= box;
       let baseBox = boxRepresentations[box].at(-1);
       const topBox = boxRepresentations[box][0];
       let middleBox = box >= 5 ? boxRepresentations[box][1] : "";
       boxDraw.push(topBox);
-      for (let i = 0; i < result[box]; i++) {
+      for (let i = 0; i < resultBox; i++) {
         if (middleBox) {
           boxDraw.push(middleBox);
         }
